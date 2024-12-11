@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+<body>
+221)<?php
+$str = '3 -2 4 0 -5 10';
+$res = preg_replace_callback('/-?\d+/', function($match) {
+    $number = (int)$match[0]; 
+    return $number ** 2; 
+}, $str);
+echo $res; 
+?>
+<br>223)<?php
+preg_replace('#[a-z]+#i', '!', 'aaa BBB');
+?>
+<br>228.1)<?php
+preg_replace('#[a-z]+#Uu', '!', 'aaa bbb');
+?>
+<br>228.2)<?php
+preg_replace('#[a-z]+#Xx', '!', 'aaa bbb');
+?>
+<br>228.3)<?php
+preg_replace('#[а-яё]+#ui', '!', 'яяя ЙЙЙ ёёё');
+?>
+<br>229)<?php
+preg_replace('#[a-z]+#Uu', '!', 'aaa bbb');
+?>
+<br>230)<?php
+$arr = ['1', '2', '3'];
+echo "aaa {$arr[0]} bbb {$arr[1]}";
+?>
+<br>231)<?php
+$arr = ['a' => 1, 'b' => 2, 'c' => 3];
+echo "text {$arr['a']} text {$arr['b']} text";
+?>
+<br>232)<?php
+for ($i = 1; $i <= 10; $i++) {
+    for ($j = 1; $j <= 10; $j++) {
+        echo "nums: $i $j<br>";
+    }
+}
+?>
+<br>233)<?php
+$arr = ['a' => 1, 'b' => 2, 'c' => 3];
+foreach ($arr as $key => $elem) {
+    echo "pair: $elem $key<br>";
+}
+?>
+<br>234)<?php
+$products = [
+    [
+        'name'   => 'product1',
+        'price'  => 100,
+        'amount' => 5,
+    ],
+    [
+        'name'   => 'product2',
+        'price'  => 200,
+        'amount' => 6,
+    ],
+    [
+        'name'   => 'product3',
+        'price'  => 300,
+        'amount' => 7,
+    ],
+];
+echo "<table border='1'>";
+echo "<tr><th>Name</th><th>Price</th><th>Amount</th><th>Total Price</th></tr>";
+foreach ($products as $product) {
+    $totalPrice = $product['price'] * $product['amount'];
+    echo "<tr>";
+    echo "<td>{$product['name']}</td>";
+    echo "<td>{$product['price']}</td>";
+    echo "<td>{$product['amount']}</td>";
+    echo "<td>{$totalPrice}</td>";
+    echo "</tr>";
+}
+echo "</table>";
+?>
+<br>235)<?php
+$text1 = 'aaa';
+$text2 = 'bbb';
+$text3 = 'ccc';
+echo "<p>$text1</p>";
+echo "<p>$text2</p>";
+echo "<p>$text3</p>";
+?>
+<br>236)<?php
+$src1 = '1.png';
+$src2 = '2.png';
+$src3 = '3.png';
+echo "<img src='$src1' alt='Image 1'>";
+echo "<img src='$src2' alt='Image 2'>";
+echo "<img src='$src3' alt='Image 3'>";
+?>
+<br>237)<?php
+echo "<ul>";
+for ($i = 1; $i <= 5; $i++) {
+    echo "<li>$i</li>";
+}
+echo "</ul>";
+?>
+<br>238)<?php
+$arr = ['text1', 'text2', 'text3'];
+echo "<select>";
+foreach ($arr as $item) {
+    echo "<option>$item</option>";
+}
+echo "</select>";
+?>
+<br>242)<?php
+$products = [
+    [
+        'name'   => 'product1',  
+        'price'  => 100,         
+        'amount' => 5,          
+    ],
+    [
+        'name'   => 'product2',  
+        'price'  => 200,        
+        'amount' => 6,           
+    ],
+    [
+        'name'   => 'product3',  
+        'price'  => 300,         
+        'amount' => 7,         
+    ],
+];
+?>
+<br>243.1)
+<p><?php echo date('Y-m-d'); ?></p>
+<br>244)
+<p><?= date('w'); ?></p>
+<br>245.1)<?php
+	$str1 = 'text1';
+	$str2 = 'text2';
+	$str3 = 'text3';
+?>
+<p><?php echo $str1; ?></p>
+<p><?php echo $str2; ?></p>
+<p><?php echo $str3; ?></p>
+<br>246)<?php
+	$arr = ['a' => 1, 'b' => 2, 'c' => 3];
+?>
+<p><?php echo $arr['a']; ?></p>
+<p><?php echo $arr['b']; ?></p>
+<p><?php echo $arr['c']; ?></p>
+<br>247)<?php
+	$show = true;
+?>
+<?php if ($show): ?>
+<div>
+	<p>text1</p>
+	<p>text2</p>
+	<p>text3</p>
+</div>
+<?php endif; ?>
+<br>248)<?php
+	$show = true;
+?>
+
+<?php if ($show): ?>
+<div>
+	<p>text+</p>
+	<p>text+</p>
+	<p>text+</p>
+</div>
+<?php else: ?>
+<div>
+	<p>text-</p>
+	<p>text-</p>
+	<p>text-</p>
+</div>
+<?php endif; ?>
+<br>249)<?php
+    $condition = 1; 
+?>
+
+<?php if ($condition == 1): ?>
+<div>
+	<p>text1</p>
+	<p>text1</p>
+	<p>text1</p>
+</div>
+<?php elseif ($condition == 2): ?>
+<div>
+	<p>text2</p>
+	<p>text2</p>
+	<p>text2</p>
+</div>
+<?php else: ?>
+<div>
+	<p>text-</p>
+	<p>text-</p>
+	<p>text-</p>
+</div>
+<?php endif; ?>
+<br>250)
+<ul id="list"></ul>
+<script>
+    const ul = document.getElementById("list");
+    for (let i = 1; i <= 5; i++) {
+        const li = document.createElement("li");
+        li.textContent = i;
+        ul.appendChild(li);
+    }
+</script>
+<br>251.1)<?php
+$arr = ['BATYR', 'BATYR', 'BATYR'];
+
+foreach ($arr as $user) {
+    echo "<div>
+        <h2>$user</h2>
+        <p>SYLA</p>
+    </div>";
+}
+?>
+<br>251.2)<?php
+$arr = [
+    [
+        'name' => 'BATYR',
+        'age'  => 30,
+    ],
+    [
+        'name' => 'BATYR',
+        'age'  => 31,
+    ],
+    [
+        'name' => 'BATYR',
+        'age'  => 32,
+    ],
+];
+
+foreach ($arr as $user) {
+    echo "<div>
+        <p>name: {$user['name']}</p>
+        <p>age: {$user['age']}</p>
+    </div>";
+}
+?>
+<br>252.1)
+<form action="/result.php" method="post">
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="age">Возраст:</label>
+    <input type="number" id="age" name="age" min="0" required>
+    
+    <label for="salary">Зарплата:</label>
+    <input type="number" id="salary" name="salary" min="0" required>
+    
+    <input type="submit" value="Отправить">
+</form>
+<br>255)<?php
+if (isset($_GET['num1'], $_GET['num2'], $_GET['num3'])) {
+    $num1 = (float)$_GET['num1'];
+    $num2 = (float)$_GET['num2'];
+    $num3 = (float)$_GET['num3'];
+
+    $sum = $num1 + $num2 + $num3;
+
+    echo "Сумма чисел: $sum";
+}
+?>
+<br>256.1)<?php
+if (isset($_POST['name'], $_POST['age'])) {
+    $name = htmlspecialchars($_POST['name']);
+    $age = (int)$_POST['age'];
+    echo "Ваше имя: $name<br>";
+    echo "Ваш возраст: $age лет";
+}
+?>
+<br>256.2)<?php
+$correctPass = '12345';
+
+if (isset($_POST['pass'])) {
+    $userPass = $_POST['pass'];
+    
+    if ($userPass === $correctPass) {
+        echo "Пароль верный!";
+    } else {
+        echo "Пароль неверный!";
+    }
+}
+?>
+<br>256.3)<form action="" method="POST">
+    <label for="year">Год рождения:</label>
+    <input type="number" id="year" name="year" min="1900" max="2100" required>
+    
+    <label for="month">Месяц рождения:</label>
+    <input type="number" id="month" name="month" min="1" max="12" required>
+    
+    <label for="day">День рождения:</label>
+    <input type="number" id="day" name="day" min="1" max="31" required>
+    
+    <input type="submit" value="Узнать день недели">
+</form>
+<br>258)<?php
+if (empty($_GET)) {
+?>
+    <form action="" method="GET">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" required>
+        <input type="submit" value="Отправить">
+    </form>
+<?php
+} else {
+    $name = htmlspecialchars($_GET['name']);
+    echo "Привет, $name!";
+}
+?>
+<br>159)<form action="" method="GET">
+    <label for="city">Город:</label>
+    <input type="text" id="city" name="city" value="<?php if (isset($_GET['city'])) echo htmlspecialchars($_GET['city']); ?>" required>
+    
+    <label for="country">Страна:</label>
+    <input type="text" id="country" name="country" value="<?php if (isset($_GET['country'])) echo htmlspecialchars($_GET['country']); ?>" required>
+    
+    <input type="submit" value="Отправить">
+</form>
+
+<?php
+if (isset($_GET['city']) && isset($_GET['country'])) {
+    $city = htmlspecialchars($_GET['city']);
+    $country = htmlspecialchars($_GET['country']);
+    
+    echo "<h2>Вы ввели:</h2>";
+    echo "Город: $city<br>";
+    echo "Страна: $country";
+}
+?>
+<br>260)<form action="" method="GET">
+    <label for="year">Введите год:</label>
+    <input type="number" id="year" name="year" 
+           value="<?php echo isset($_GET['year']) ? $_GET['year'] : date('Y'); ?>" required>
+    <input type="submit" value="Проверить">
+</form>
+<?php
+if (isset($_GET['year'])) {
+    $year = (int)$_GET['year'];
+    if (($year % 4 == 0 && $year % 100 != 0) || $year % 400 == 0) {
+        echo "<p>$year - високосный год.</p>";
+    } else {
+        echo "<p>$year - не високосный год.</p>";
+    }
+}
+?>
+<br>261)<?php
+$currentYear = date('Y');
+$currentMonth = date('m');
+$currentDay = date('d');
+$year = $_GET['year'] ?? $currentYear;
+$month = $_GET['month'] ?? $currentMonth;
+$day = $_GET['day'] ?? $currentDay;
+$newYearDate = strtotime("01-01-" . ($year + 1));
+$userDate = strtotime("$year-$month-$day");
+$daysRemaining = ceil(($newYearDate - $userDate) / (60 * 60 * 24));
+?>
+<form action="" method="GET">
+	<input type="number" name="year" value="<?= $year ?>" min="1900" max="2100" placeholder="Год">
+	<input type="number" name="month" value="<?= $month ?>" min="1" max="12" placeholder="Месяц">
+	<input type="number" name="day" value="<?= $day ?>" min="1" max="31" placeholder="День">
+	<input type="submit" value="Рассчитать">
+</form>
+<?php
+if ($_GET) {
+	echo "До Нового Года осталось $daysRemaining дня(ей).";
+}
+?>
+<br>263)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Транслитерация текста</title>
+</head>
+<body>
+    <h1>Введите текст для транслитерации:</h1>
+    <form action="" method="GET">
+        <textarea name="test" rows="5" cols="40"><?= htmlspecialchars($_GET['test'] ?? '', ENT_QUOTES) ?></textarea><br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (isset($_GET['test']) && !empty(trim($_GET['test']))) {
+        $inputText = $_GET['test'];
+
+        // Транслитерация
+        function transliterate($text) {
+            $translitTable = [
+                'а' => 'a', 'б' => 'b', 'в' => 'v', 'г' => 'g', 'д' => 'd', 'е' => 'e', 'ё' => 'yo',
+                'ж' => 'zh', 'з' => 'z', 'и' => 'i', 'й' => 'y', 'к' => 'k', 'л' => 'l', 'м' => 'm',
+                'н' => 'n', 'о' => 'o', 'п' => 'p', 'р' => 'r', 'с' => 's', 'т' => 't', 'у' => 'u',
+                'ф' => 'f', 'х' => 'kh', 'ц' => 'ts', 'ч' => 'ch', 'ш' => 'sh', 'щ' => 'shch', 
+                'ъ' => '', 'ы' => 'y', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya',
+                'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'Yo',
+                'Ж' => 'Zh', 'З' => 'Z', 'И' => 'I', 'Й' => 'Y', 'К' => 'K', 'Л' => 'L', 'М' => 'M',
+                'Н' => 'N', 'О' => 'O', 'П' => 'P', 'Р' => 'R', 'С' => 'S', 'Т' => 'T', 'У' => 'U',
+                'Ф' => 'F', 'Х' => 'Kh', 'Ц' => 'Ts', 'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Shch',
+                'Ъ' => '', 'Ы' => 'Y', 'Ь' => '', 'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',
+            ];
+            return strtr($text, $translitTable);
+        }
+
+        $transliteratedText = transliterate($inputText);
+
+        echo "<h2>Транслитерация:</h2>";
+        echo "<p>" . htmlspecialchars($transliteratedText, ENT_QUOTES) . "</p>";
+    }
+    ?>
+    <br>264)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма с флажком</title>
+</head>
+<body>
+    <h1>Введите имя и отметьте флажок</h1>
+    <form action="" method="GET">
+        <label for="name">Ваше имя:</label><br>
+        <input type="text" name="name" id="name" value="<?= htmlspecialchars($_GET['name'] ?? '', ENT_QUOTES) ?>"><br><br>
+        <label for="flag">Приветствовать меня</label>
+        <input type="checkbox" name="flag" id="flag" <?= isset($_GET['flag']) ? 'checked' : '' ?>><br><br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (!empty($_GET)) {
+        $name = htmlspecialchars($_GET['name'] ?? '', ENT_QUOTES);
+
+        if (!empty($name)) { 
+            if (isset($_GET['flag'])) { 
+                echo "<h2>Привет, $name!</h2>";
+            } else { 
+                echo "<h2>До свидания, $name!</h2>";
+            }
+        } else {
+            echo "<h2>Пожалуйста, введите имя.</h2>";
+        }
+    }
+    ?>
+    <br>265)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка возраста</title>
+</head>
+<body>
+    <h1>Подтвердите ваш возраст</h1>
+    <form action="" method="GET">
+        <label for="age">Мне уже есть 18 лет</label>
+        <input type="checkbox" name="flag" value="1" id="age"><br><br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (!empty($_GET)) {
+        if (isset($_GET['flag']) && $_GET['flag'] === '1') { 
+            echo "<h2>Доступ на сайт разрешён. Добро пожаловать!</h2>";
+        } else { 
+            echo "<h2>Доступ на сайт запрещён. Вам должно быть 18 лет или больше.</h2>";
+        }
+    }
+    ?>
+<br>266)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма с чекбоксами</title>
+</head>
+<body>
+    <h1>Выберите опции:</h1>
+    <form action="" method="GET">
+        <input type="hidden" name="option1" value="0">
+        <label>
+            <input 
+                type="checkbox" 
+                name="option1" 
+                value="1" 
+                <?php if (!empty($_GET['option1'])) echo 'checked'; ?>
+            >
+            Опция 1
+        </label><br>
+        <input type="hidden" name="option2" value="0">
+        <label>
+            <input 
+                type="checkbox" 
+                name="option2" 
+                value="1" 
+                <?php if (!empty($_GET['option2'])) echo 'checked'; ?>
+            >
+            Опция 2
+        </label><br>
+        <input type="hidden" name="option3" value="0">
+        <label>
+            <input 
+                type="checkbox" 
+                name="option3" 
+                value="1" 
+                <?php if (!empty($_GET['option3'])) echo 'checked'; ?>
+            >
+            Опция 3
+        </label><br>
+
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (!empty($_GET)) { 
+        echo "<h2>Вы выбрали следующие опции:</h2>";
+        if (!empty($_GET['option1'])) echo "<p>Опция 1</p>";
+        if (!empty($_GET['option2'])) echo "<p>Опция 2</p>";
+        if (!empty($_GET['option3'])) echo "<p>Опция 3</p>";
+        if (empty($_GET['option1']) && empty($_GET['option2']) && empty($_GET['option3'])) {
+            echo "<p>Никакие опции не выбраны</p>";
+        }
+    }
+    ?>
+<br>267)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор пола</title>
+</head>
+<body>
+    <h1>Укажите ваш пол:</h1>
+    <form action="" method="GET">
+        <label>
+            <input type="radio" name="gender" value="male" 
+                <?php if (isset($_GET['gender']) && $_GET['gender'] === 'male') echo 'checked'; ?>>
+            Мужской
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="female" 
+                <?php if (isset($_GET['gender']) && $_GET['gender'] === 'female') echo 'checked'; ?>>
+            Женский
+        </label><br><br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (!empty($_GET)) { 
+        if (isset($_GET['gender'])) {
+            if ($_GET['gender'] === 'male') {
+                echo "<h2>Вы выбрали мужской пол.</h2>";
+            } elseif ($_GET['gender'] === 'female') {
+                echo "<h2>Вы выбрали женский пол.</h2>";
+            }
+        } else {
+            echo "<h2>Вы не выбрали пол.</h2>";
+        }
+    }
+    ?>
+<br>268)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор языка</title>
+</head>
+<body>
+    <h1>Выберите ваш язык</h1>
+    <form action="" method="GET">
+        <label>
+            <input type="radio" name="language" value="english" 
+                <?php if (!empty($_GET['language']) && $_GET['language'] === 'english') echo 'checked'; ?>>
+            Английский
+        </label><br>
+        <label>
+            <input type="radio" name="language" value="russian" 
+                <?php if (!empty($_GET['language']) && $_GET['language'] === 'russian') echo 'checked'; ?>>
+            Русский
+        </label><br>
+        <label>
+            <input type="radio" name="language" value="french" 
+                <?php if (!empty($_GET['language']) && $_GET['language'] === 'french') echo 'checked'; ?>>
+            Французский
+        </label><br><br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (!empty($_GET)) { 
+        if (!empty($_GET['language'])) {
+            echo "<h2>Вы выбрали язык: " . htmlspecialchars($_GET['language']) . ".</h2>";
+        } else {
+            echo "<h2>Вы не выбрали язык.</h2>";
+        }
+    }
+    ?>
+<br>269)<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор страны</title>
+</head>
+<body>
+    <h1>Выберите страну, в которой вы живете</h1>
+    <form action="" method="GET">
+        <select name="country">
+            <option value="russia" <?php if (isset($_GET['country']) && $_GET['country'] === 'russia') echo 'selected'; ?>>Қазақстан</option>
+            <option value="usa" <?php if (isset($_GET['country']) && $_GET['country'] === 'usa') echo 'selected'; ?>>США</option>
+            <option value="germany" <?php if (isset($_GET['country']) && $_GET['country'] === 'germany') echo 'selected'; ?>>Жапония</option>
+            <option value="france" <?php if (isset($_GET['country']) && $_GET['country'] === 'france') echo 'selected'; ?>>Франция</option>
+            <option value="india" <?php if (isset($_GET['country']) && $_GET['country'] === 'india') echo 'selected'; ?>>Қытай</option>
+        </select>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <?php
+    if (!empty($_GET['country'])) {
+        echo "<h2>Вы выбрали страну: " . htmlspecialchars($_GET['country']) . ".</h2>";
+    }
+    ?>
+<br>270)<form action="" method="GET">
+    <label for="language">Выберите язык:</label>
+    <select name="language" id="language">
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+    </select>
+    <input type="submit" value="Выбрать">
+  </form>
+  
+  <?php
+    if (isset($_GET['language'])) {
+      echo 'Вы выбрали язык: ' . htmlspecialchars($_GET['language']);
+    }
+  ?>
+  
+<br>272.1)<?php
+if (isset($_GET['number'])) {
+    echo $_GET['number']; 
+}
+?>
+<br>272.2)<?php
+if (isset($_GET['number'])) {
+    $number = (int)$_GET['number']; 
+    echo $number * $number;  
+    }
+?>
+<br>272.3)<?php
+if (isset($_GET['num1']) && isset($_GET['num2'])) {
+    $num1 = (int)$_GET['num1'];
+    $num2 = (int)$_GET['num2'];
+    echo $num1 + $num2;
+}
+?>
+<br>272.4)<?php
+if (isset($_GET['number'])) {
+    $number = (int)$_GET['number'];
+    if ($number == 1) {
+        echo 'hello';
+    } elseif ($number == 2) {
+        echo 'bye';
+    }
+}
+?>
+<br>272.5)<?php
+$arr = ['a', 'b', 'c', 'd', 'e'];
+?>
+<br>273.1)<a href="#" onclick="showNumber(1)">Ссылка 1</a>
+<a href="#" onclick="showNumber(2)">Ссылка 2</a>
+<a href="#" onclick="showNumber(3)">Ссылка 3</a>
+
+<p id="result"></p>
+
+<script>
+  function showNumber(number) {
+    document.getElementById('result').textContent = 'Вы выбрали число: ' + number;
+  }
+</script>
+
+<br>273.2)<div id="links"></div>
+
+<p id="result"></p>
+
+<script>
+  for (let i = 1; i <= 10; i++) {
+    let link = document.createElement('a');
+    link.href = '#';
+    link.textContent = 'Ссылка ' + i;
+    link.onclick = function() {
+      document.getElementById('result').textContent = 'Вы выбрали число: ' + i;
+    };
+    document.getElementById('links').appendChild(link);
+    document.getElementById('links').appendChild(document.createElement('br')); // добавляем перенос строки
+  }
+</script>
+
+<br>273.3)<?php
+$arr = ['a', 'b', 'c', 'd', 'e'];
+?>
+
+<div>
+  <?php foreach ($arr as $item): ?>
+    <a href="?item=<?= urlencode($item) ?>">Ссылка для <?= $item ?></a><br>
+  <?php endforeach; ?>
+</div>
+
+<?php
+if (isset($_GET['item'])) {
+  echo 'Вы выбрали элемент: ' . $_GET['item'];
+}
+?>
+<br>274.1)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Цельсий в Фаренгейт</title>
+</head>
+<body>
+    <input type="number" id="celsius" placeholder="Введите температуру в °C">
+    <button onclick="convertToFahrenheit()">Преобразовать</button>
+    <p id="result"></p>
+
+    <script>
+        function convertToFahrenheit() {
+            const celsius = document.getElementById('celsius').value;
+            const fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById('result').innerText = `Температура в °F: ${fahrenheit}`;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.2)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Факториал</title>
+</head>
+<body>
+    <input type="number" id="number" placeholder="Введите число">
+    <button onclick="calculateFactorial()">Рассчитать факториал</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateFactorial() {
+            let num = document.getElementById('number').value;
+            let factorial = 1;
+            for (let i = 1; i <= num; i++) {
+                factorial *= i;
+            }
+            document.getElementById('result').innerText = `Факториал числа: ${factorial}`;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.3)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Делители числа</title>
+</head>
+<body>
+    <input type="number" id="number" placeholder="Введите число">
+    <button onclick="findDivisors()">Найти делители</button>
+    <p id="result"></p>
+
+    <script>
+        function findDivisors() {
+            const num = document.getElementById('number').value;
+            let divisors = [];
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    divisors.push(i);
+                }
+            }
+            document.getElementById('result').innerText = `Делители числа: ${divisors.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.4)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Общие делители</title>
+</head>
+<body>
+    <input type="number" id="number1" placeholder="Введите первое число">
+    <input type="number" id="number2" placeholder="Введите второе число">
+    <button onclick="findCommonDivisors()">Найти общие делители</button>
+    <p id="result"></p>
+
+    <script>
+        function findCommonDivisors() {
+            const num1 = document.getElementById('number1').value;
+            const num2 = document.getElementById('number2').value;
+            let commonDivisors = [];
+            for (let i = 1; i <= Math.min(num1, num2); i++) {
+                if (num1 % i === 0 && num2 % i === 0) {
+                    commonDivisors.push(i);
+                }
+            }
+            document.getElementById('result').innerText = `Общие делители: ${commonDivisors.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.5)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корни квадратного уравнения</title>
+</head>
+<body>
+    <input type="number" id="a" placeholder="Введите коэффициент a">
+    <input type="number" id="b" placeholder="Введите коэффициент b">
+    <input type="number" id="c" placeholder="Введите коэффициент c">
+    <button onclick="findRoots()">Найти корни</button>
+    <p id="result"></p>
+
+    <script>
+        function findRoots() {
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const c = document.getElementById('c').value;
+            const discriminant = b * b - 4 * a * c;
+
+            if (discriminant > 0) {
+                const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                document.getElementById('result').innerText = `Корни уравнения: x1 = ${root1}, x2 = ${root2}`;
+            } else if (discriminant === 0) {
+                const root = -b / (2 * a);
+                document.getElementById('result').innerText = `Единственный корень: x = ${root}`;
+            } else {
+                document.getElementById('result').innerText = "Корней нет (дискриминант отрицателен)";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<br>274.6)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тройка Пифагора</title>
+</head>
+<body>
+    <input type="number" id="a" placeholder="Введите первое число">
+    <input type="number" id="b" placeholder="Введите второе число">
+    <input type="number" id="c" placeholder="Введите третье число">
+    <button onclick="checkPythagorean()">Проверить</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPythagorean() {
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const c = document.getElementById('c').value;
+
+            const max = Math.max(a, b, c);
+            const sumSquares = Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(max, 2);
+            if (max * max === sumSquares) {
+                document.getElementById('result').innerText = "Это тройка Пифагора!";
+            } else {
+                document.getElementById('result').innerText = "Это не тройка Пифагора.";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<br>274.7)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дни до дня рождения</title>
+</head>
+<body>
+    <input type="text" id="birthdate" placeholder="Введите дату рождения (дд.мм.гггг)">
+    <button onclick="daysUntilBirthday()">Посчитать</button>
+    <p id="result"></p>
+
+    <script>
+        function daysUntilBirthday() {
+            const birthdate = document.getElementById('birthdate').value;
+            const [day, month, year] = birthdate.split('.');
+            const today = new Date();
+            let nextBirthday = new Date(year, month - 1, day);
+            if (nextBirthday < today) {
+                nextBirthday.setFullYear(today.getFullYear() + 1);
+            }
+            const diffTime = nextBirthday - today;
+            const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('result').innerText = `До вашего дня рождения осталось: ${daysLeft} дней.`;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.8)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Счетчик слов и символов</title>
+</head>
+<body>
+    <textarea id="text" placeholder="Введите текст"></textarea>
+    <button onclick="countWordsAndChars()">Посчитать</button>
+    <p id="result"></p>
+
+    <script>
+        function countWordsAndChars() {
+            const text = document.getElementById('text').value;
+            const words = text.trim().split(/\s+/).length;
+            const chars = text.length;
+            document.getElementById('result').innerText = `Количество слов: ${words}, Количество символов: ${chars}`;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.9)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Процент символов</title>
+</head>
+<body>
+    <textarea id="text" placeholder="Введите текст"></textarea>
+    <button onclick="countCharacterPercentage()">Посчитать</button>
+    <p id="result"></p>
+
+    <script>
+        function countCharacterPercentage() {
+            const text = document.getElementById('text').value;
+            const totalLength = text.length;
+            let percentages = {};
+            for (let char of text) {
+                percentages[char] = (percentages[char] || 0) + 1;
+            }
+            let result = '';
+            for (let char in percentages) {
+                result += `${char}: ${(percentages[char] / totalLength * 100).toFixed(2)}%\n`;
+            }
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
+
+<br>274.10)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<br>274.11)<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Гороскоп</title>
+</head>
+<body>
+    <h2>Введите вашу дату рождения:</h2>
+    <input type="date" id="birthdate">
+    <button onclick="showHoroscope()">Получить гороскоп</button>
+    <p id="horoscope"></p>
+
+    <script>
+        const horoscopes = {
+            "aries": ["Сегодня отличный день для начала нового проекта!", "Сегодня вы почувствуете большую поддержку от близких."],
+            "taurus": ["Ваши усилия начнут приносить плоды, не упустите шанс!", "Сегодня вам предстоит принять важное решение."],
+            "gemini": ["Будьте внимательны, завтра может быть непростой день.", "Сегодня — удачный день для общения и новых знакомств."],
+            "cancer": ["Сегодня ваши эмоции будут на высоте, постарайтесь их контролировать.", "Прекрасный день для творчества и самовыражения."],
+            "leo": ["Сегодня вы будете в центре внимания, не упустите возможности.", "В этот день возможны неожиданные события, которые принесут вам радость."],
+            "virgo": ["Сегодня ваш день для работы и самопознания.", "Будьте осторожны в финансовых вопросах."],
+            "libra": ["Ваши отношения с окружающими будут сегодня гармоничными.", "Вам предстоит важный выбор, не торопитесь с решением."],
+            "scorpio": ["Будьте осторожны, не принимайте поспешных решений.", "Ваши усилия приведут к успеху, не останавливайтесь."],
+            "sagittarius": ["Сегодня удачный день для путешествий и новых начинаний.", "Ожидаются хорошие новости, которые обогатят ваш опыт."],
+            "capricorn": ["Будьте аккуратны в денежных вопросах.", "Сегодня вам предстоит решить важную задачу."],
+            "aquarius": ["День подходит для общения с близкими, не упустите шанс.", "Сегодня вы можете узнать важную информацию."],
+            "pisces": ["Забудьте о проблемах и посвятите день отдыху.", "Вы почувствуете гармонию в отношениях с окружающими."],
+        };
+
+        function getZodiacSign(month, day) {
+            const zodiacSigns = [
+                { sign: "capricorn", end: { month: 1, day: 19 }},
+                { sign: "aquarius", end: { month: 2, day: 18 }},
+                { sign: "pisces", end: { month: 3, day: 20 }},
+                { sign: "aries", end: { month: 4, day: 19 }},
+                { sign: "taurus", end: { month: 5, day: 20 }},
+                { sign: "gemini", end: { month: 6, day: 20 }},
+                { sign: "cancer", end: { month: 7, day: 22 }},
+                { sign: "leo", end: { month: 8, day: 22 }},
+                { sign: "virgo", end: { month: 9, day: 22 }},
+                { sign: "libra", end: { month: 10, day: 22 }},
+                { sign: "scorpio", end: { month: 11, day: 21 }},
+                { sign: "sagittarius", end: { month: 12, day: 21 }},
+                { sign: "capricorn", end: { month: 12, day: 31 }},
+            ];
+
+            for (let i = 0; i < zodiacSigns.length; i++) {
+                const zodiac = zodiacSigns[i];
+                if ((month < zodiac.end.month) || (month === zodiac.end.month && day <= zodiac.end.day)) {
+                    return zodiac.sign;
+                }
+            }
+            return "capricorn";
+        }
+
+        function showHoroscope() {
+            const birthdate = document.getElementById('birthdate').value;
+            if (!birthdate) {
+                alert("Пожалуйста, введите вашу дату рождения.");
+                return;
+            }
+
+            const date = new Date(birthdate);
+            const month = date.getMonth() + 1; 
+            const day = date.getDate();
+            
+            const zodiacSign = getZodiacSign(month, day);
+            const todayHoroscope = horoscopes[zodiacSign][0];   document.getElementById('horoscope').innerText = `Ваш знак зодиака: ${zodiacSign.charAt(0).toUpperCase() + zodiacSign.slice(1)}. Гороскоп на сегодня: ${todayHoroscope}`;
+        }
+    </script>
+    <select id="day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      
+      <select id="month">
+        <option value="0">Январь</option>
+        <option value="1">Февраль</option>
+        <option value="2">Март</option>
+        <option value="3">Апрель</option>
+    
+      </select>
+      
+      <select id="year">
+        <option value="1990">1990</option>
+        <option value="1991">1991</option>
+        <option value="1992">1992</option>
+       
+      </select>
+      
+      <button onclick="getDayOfWeek()">Получить день недели</button>
+      
+      <p id="result"></p>
+      
+.
+</body>
+</html>
